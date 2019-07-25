@@ -1,0 +1,212 @@
+body {
+	background-color : #000;
+	margin : 0px;
+	padding : 0px;
+	color : #fff;
+	overflow:hidden;
+}
+
+#angle-one, #angle-two{
+	cursor:pointer;
+}
+#cb-render3{
+	max-width:100%;
+}
+#live{
+	font-family: Arial,sans-serif;
+	position:absolute;
+	z-index:5;
+	margin:10px;
+	font-size:1.2em;
+	color:red;
+	font-weight:900;
+	opacity:0.5;
+}
+
+#loading{
+	left:35%;
+	position:absolute;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	top: 40%;
+	z-index:-1;
+	color:#fff;
+	font-weight:bold;
+}
+
+
+blink {
+    display: inline;
+    color: inherit;
+    animation: blink 1s steps(1) infinite;
+    -webkit-animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink { 50% { color: transparent; } }
+@-webkit-keyframes blink { 50% { color: transparent; } }
+
+#camera-select{
+	bottom:5px;
+	left:35px;
+	position:absolute;
+	display:inline;
+	color:#fff;
+	padding:5px;
+	font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace; 
+	border:1px dotted #fff;
+}
+
+#start-audio{
+	bottom:5px;
+	left:152px;
+	position:absolute;
+	display:inline;
+	color:#fff;
+	padding:5px;
+	font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace; 
+	border:1px dotted #fff;
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+
+#feed{
+	width:25%;
+	height:100%;
+	position:fixed;
+	right:0;
+	top:0
+	bottom:0;
+	background-color:transparent;
+	background-color:#fff;
+	color:#222;
+}
+
+#tweets-container{
+	background-color:#fff;
+	overflow-y: scroll;
+	height: 100%;
+}
+
+#tweets-container h4{
+	font-size:1.2em;
+	font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight:bold;
+	padding:5px;
+	color:#fff;
+	background-color:#333;
+	margin:0;
+}
+
+#tweets{
+	list-style-type:none;
+	list-style:none;
+	/* margin:10px; */
+	padding:0px 5px;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.tweet{
+	background-color:#fff;
+	opacity:0.95;
+	color:#222;
+	border-radius:5px;
+	list-style-type: none;
+	-webkit-box-shadow: 0px 11px 28px -14px rgba(0,0,0,0.28);
+	-moz-box-shadow: 0px 11px 28px -14px rgba(0,0,0,0.28);
+	box-shadow: 0px 11px 28px -14px rgba(0,0,0,0.28);
+	
+}
+
+.tweet a{
+	color:#222;
+}
+
+.twitter-avatar{
+	padding:5px;
+	max-width:50px;
+	max-height:50px;
+	float:left;
+}
+
+.twitter-meta{
+	padding-top:5px;
+}
+
+.tweet-body{
+	padding: 0 5px;
+}
+
+.tweet-date{
+	font-size:0.7em;
+	padding:5px;
+}
+
+#i, #info{
+	position:absolute;
+	left:5px;
+	bottom:5px;
+	color:#fff;
+	padding:5px;
+	font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace; 
+	border:1px dotted #fff;
+}
+
+#i{
+	text-decoration: none;
+}
+
+#i a, #info a{
+	color:#fff;
+}
+
+#info{
+	display:none;
+	max-width:400px;
+}
+
+#canvas-3d{
+	width:50%;
+}
+
+#currentinfo{
+	padding:5px;
+	margin:5px;
+	margin-bottom: 15px;
+}
+
+#currentinfo h4{
+	font-weight:bold;
+	font-size:1.2em;
+	padding: 5px 0;
+	margin:0;
+	font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+#currentsite{
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-style:bold;
+	font-size:1.1em;
+}
+
+#currenturl{
+	font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace; 
+	font-size:0.8em;
+}
+
+#currenturl a{
+}
+
+#feed-footer{
+	font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace; 
+	font-size:0.65em;
+	bottom:0px;
+	position:absolute;
+	text-align:center;
+	margin:0 auto;
+	background-color:#666;
+	width:100%;
+}
+
+#feed-footer a{
+	color:white;
+}

@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>x</title>
+		<link href="assets/css/style.css" rel="stylesheet">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	</head>
+
+	<body>
+		<script src="/assets/libs/jquery.min.js"></script>
+		<script src="/assets/libs/three.min.js"></script>
+		<script src="/assets/js/socket.io.js"></script>
+
+		<div id="canvas-3d" class="viewer"></div>
+
+		<div id='feed'>x</div>
+		<div id='i'>
+			<a href='#' id='ilink'>i</a>
+		</div>
+		<div id='info'>
+				<a href='#' id='infoclose'>x</a>
+				<p>x</p>
+			</div>
+
+		<script>
+
+
+    var scene, camera, renderer;
+
+    init();
+
+    function init() {
+      scene = new THREE.Scene();
+      var WIDTH = window.innerWidth,
+          HEIGHT = window.innerHeight;
+      renderer = new THREE.WebGLRenderer({antialias:true});
+      
+
+      renderer.setSize(WIDTH, HEIGHT);
+
+      document.body.appendChild(renderer.domElement);
+      VIEW_ANGLE = 15,
+      ASPECT = WIDTH / HEIGHT,
+      NEAR = 1,
+      FAR = 10000;
+      camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+      camera.position.set(25, 3, 4);
+      camera.lookAt(scene.position);
+      scene.add(camera);
+      window.addEventListener('resize', function() {
+        var WIDTH = window.innerWidth,
+            HEIGHT = window.innerHeight;
+        renderer.setSize(WIDTH, HEIGHT);
+        camera.aspect = WIDTH / HEIGHT;
+        camera.updateProjectionMatrix();
+      });
+     // renderer.setClearColorHex(0xffffff, 1);
+      //renderer.shadowMapSoft = true;
+      //renderer.shadowMapType = THREE.PCFShadowMap;
+      renderer.shadowMapEnabled = true;
+      renderer.shadowMapSoft = true;
+      renderer.shadowMapType = THREE.PCFShadowMap;
+
+
+            
+
+    var spotLight = new THREE.SpotLight( 0xffffff, 1 );
+    spotLight.position.set(5, 5.66, 1 );
+    //spotLight.target.position.set( 0, 0, -100 );
+      spotLight.castShadow = true;
+      //spotLight.shadowCameraFov = VIEW_ANGLE;
+      spotLight.shadowBias = 1;
+      spotLight.shadowDarkness = 0.5;
+      spotLight.shadowMapWidth = 1024;
+      spotLight.shadowMapHeight = 1024;
+      spotLight.shadowCameraVisible = true;
+      spotLight.shadowCameraNear = 5; 
+      spotLight.shadowCameraFar = 8; 
+      spotLight.shadowCameraFov = 50; 
+
+    scene.add( spotLight );
+
+  };
+
+
+
+var loader = new THREE.JSONLoader(); // init the loader util
+
+// init loading
+loader.load('assets/models/scene.json', function (geometry, materials) {
+  // create a new material
+  var material = new THREE.MeshFaceMaterial(materials);
+  
+  // create a mesh with models geometry and material
+  var mesh = new THREE.Mesh(geometry,material);
+  mesh.castShadow = true;
+      mesh.receiveShadow = true;
+
+  scene.add(mesh);
+  animate();
+});
+
+/*
+var geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
+var material = new THREE.MeshLambertMaterial( { color: 0xffff00 } ); 
+var mesh = new THREE.Mesh( geometry, material ); 
+mesh.position.x = -0.2;
+mesh.position.y = 1;
+//mesh.position.z = -1.5;
+mesh.castShadow =true;
+mesh.recieveShadow = true;
+scene.add( mesh );
+
+var geometry = new THREE.BoxGeometry( 100, 1, 100 ); 
+var material = new THREE.MeshPhongMaterial( { color: 0xffff00 } ); 
+var mesh = new THREE.Mesh( geometry, material ); 
+mesh.castShadow =true;
+mesh.recieveShadow = true;
+mesh.position.y = -1.5;
+scene.add( mesh );
+
+*/
+
+function animate() {
+ 
+    // Read more about requestAnimationFrame at http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+    requestAnimationFrame(animate);
+ 
+    // Render the scene.
+    renderer.render(scene, camera);
+ 
+  }
+
+  </script>
+  <script type="text/javascript" src="/assets/js/main.js"></script>
+	</body>
+</html>
